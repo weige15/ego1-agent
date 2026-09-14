@@ -1,5 +1,5 @@
 module top #(
-    parameter int unsigned HALF_PERIOD_CYCLES = 50_000_000
+    parameter int unsigned TOGGLE_PERIOD_CYCLES = 20_000_000
 ) (
     input  logic clk,
     input  logic rst,
@@ -13,7 +13,7 @@ module top #(
             counter <= 32'd0;
             led     <= 1'b0;
         end else begin
-            if (counter == HALF_PERIOD_CYCLES - 1) begin
+            if (counter == TOGGLE_PERIOD_CYCLES - 1) begin
                 counter <= 32'd0;
                 led     <= ~led;
             end else begin

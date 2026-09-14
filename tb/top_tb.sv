@@ -10,8 +10,9 @@ module top_tb;
 
     always #5 clk = ~clk;
 
+    // Four cycles in simulation represent the 0.2-second hardware interval.
     top #(
-        .HALF_PERIOD_CYCLES(4)
+        .TOGGLE_PERIOD_CYCLES(4)
     ) dut (
         .clk(clk),
         .rst(rst),
